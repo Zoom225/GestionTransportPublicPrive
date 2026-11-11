@@ -2,7 +2,7 @@
 
 ## Correction de l'étape 1
 
-Issue #1, branche existante `feature/backend-01-cadrage-gestion-transport`, PR #2 brouillon vers master. Cette correction porte uniquement sur les trois documents de cadrage. Aucune fonctionnalité, donnée, migration ou interface utilisateur n'est modifiée. Aucune nouvelle issue ni branche distante n'est nécessaire pour cette correction. Les futures issues et branches attendent l'accord du responsable du projet.
+Issue #1, branche existante `feature/backend-01-cadrage-gestion-transport`, PR #2 fusionnée vers master et issue #1 clôturée. Cette correction porte uniquement sur les trois documents de cadrage. Aucune fonctionnalité, donnée, migration ou interface utilisateur n'est modifiée. Aucune nouvelle issue ni branche distante n'est nécessaire pour cette correction. Les futures issues et branches attendent l'accord du responsable du projet.
 
 ## Étape 2 proposée : structure et configuration
 
@@ -49,4 +49,4 @@ Cette matrice n'est pas un référentiel officiel : les libellés doivent être 
 
 ## Vérifications de la correction
 
-Contrôler le diff documentaire, la cohérence des invariants entre les trois documents, l'absence de terminologie étrangère à la Gestion de Transport et la préservation des fichiers locaux non suivis. Exécuter `mvnw.cmd clean verify` pour confirmer l'absence de régression du socle ; cela ne valide pas les fonctionnalités métier qui restent à développer. Commit et push limités aux trois documents ; description de la PR #2 mise à jour avec `Closes #1`, PR maintenue en brouillon sans fusion.
+Contrôler le diff documentaire, la cohérence des invariants entre les trois documents, l'absence de terminologie étrangère à la Gestion de Transport et la préservation des fichiers locaux non suivis. Exécuter `mvnw.cmd clean verify` pour confirmer l'absence de régression du socle ; cela ne valide pas les fonctionnalités métier qui restent à développer. Commit et push limités aux trois documents ; description de la PR #2 mise à jour avec `Closes #1`, La PR #2 a depuis été fusionnée ; les futures PR restent initialement en brouillon et attendent une autorisation de fusion.

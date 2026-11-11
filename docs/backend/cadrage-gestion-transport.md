@@ -24,4 +24,4 @@ Organisation par modules métier `agence`, `client`, `chauffeur`, `vehicule`, `t
 Les futures implémentations doivent tester l'absence de chauffeur dès la création, l'identité chauffeur/passager, la capacité incluant les attentes bloquantes, la libération sur annulation/expiration et les réservations concurrentes sur PostgreSQL isolé. Une compilation du squelette ne prouve pas ces comportements.
 
 ## Traçabilité
-Correction sur la branche existante `feature/backend-01-cadrage-gestion-transport`, issue #1 et PR #2 vers master. PR maintenue en brouillon, sans fusion. Aucune nouvelle issue ou branche distante pour cette correction.
+Correction sur la branche existante `feature/backend-01-cadrage-gestion-transport`, issue #1 et PR #2 vers master. La PR #2 a été fusionnée et l'issue #1 clôturée. Cette fusion précède l'audit de nettoyage #4 ; aucune fusion automatique n'est effectuée par cet audit.
