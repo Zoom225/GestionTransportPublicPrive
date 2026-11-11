@@ -8,7 +8,7 @@ Issue #1, branche existante `feature/backend-01-cadrage-gestion-transport`, PR #
 
 | Lot | Périmètre proposé | Validation attendue |
 |---|---|---|
-| 2.1 Décisions et contrats | Valider les droits GLOBAL/LOCAL, les questions ouvertes et les frontières des six modules métier | Décisions explicites ; catégories STANDARD/ABONNE/VIP sans avantages inventés |
+| 2.1 Décisions et contrats | Valider les droits GENERAL/LOCAL, les questions ouvertes et les frontières des six modules métier | Décisions explicites ; catégories STANDARD/ABONNE/VIP sans avantages inventés |
 | 2.2 Environnements | Séparer configuration de développement et tests, PostgreSQL isolé, secrets hors Git ; prévoir les migrations non destructives | Démarrage reproductible, aucune connexion de test aux données réelles |
 | 2.3 Structure | Préparer les modules agence, client, chauffeur, vehicule, trajet, reservation et configuration, securite, erreur ; respecter controller/service/repository/dto/mapper/entity selon les besoins | Dépendances de modules cohérentes, aucun accès HTTP direct aux repositories |
 | 2.4 Contrats transversaux | Définir validation DTO, format d'erreur et politique d'autorisation ; décider le mécanisme d'authentification avant développement | Contrats revus et scénarios 401/403 définis |
@@ -20,7 +20,7 @@ Cette étape prépare le socle et les contrats. Elle n'implémente pas les rése
 
 | Étape | Lot | Critère principal |
 |---|---|---|
-| 3 | Agences et administrateurs | Droits GLOBAL/LOCAL validés et testés |
+| 3 | Agences et administrateurs | Droits GENERAL/LOCAL validés et testés |
 | 4 | Clients et catégories | STANDARD/ABONNE/VIP, sans règle non approuvée |
 | 5 | Véhicules et chauffeurs | Affectations et disponibilités validées |
 | 6 | Trajets PUBLIC/PRIVE | Un chauffeur dès la création, distinct des passagers |
