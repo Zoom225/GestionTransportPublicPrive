@@ -12,7 +12,7 @@ La suppression effective concerne le dossier principal de travail, resté sur la
 
 Les 36 chemins ont été générés depuis une liste fermée de six modules et six sous-packages, sans recherche destructive globale. Pour chaque fichier, contrôle exact du contenu : un commentaire « Couche … du module … de Gestion de Transport. » et une déclaration package. Aucune annotation, aucune classe, aucune méthode, aucune documentation spécifique nécessaire. Vérification de l'absence de suivi Git, contrôle SHA-256 avant retrait, validation de chaque chemin absolu dans le répertoire autorisé.
 
-Classe A : retrait sûr de structures prématurées. Aucun dossier supprimé, aucun git clean, aucune suppression récursive. Les éventuels répertoires vides peuvent rester visibles sur le disque mais ne font pas partie du code compilé.
+Classe A : retrait sûr de structures prématurées. Lors du premier retrait, aucun dossier n a été supprimé. Le complément ci-dessous documente leur suppression ultérieure autorisée, sans nettoyage global ni suppression récursive.
 
 ## Sauvegarde et préservation
 
@@ -80,3 +80,66 @@ Pour chaque ligne : fichier non suivi, commentaire générique et déclaration s
 Une seule fonctionnalité métier à la fois. Créer uniquement les classes et couches requises par le besoin validé ; aucun DTO, mapper, service ou repository systématique. Préserver GENERAL et LOCAL, le chauffeur obligatoire dès la création et distinct des quatre passagers maximum ; compter toutes les réservations occupant une place, y compris les attentes bloquantes.
 
 Arrêt après la PR brouillon ; attendre la validation avant toute reprise. Aucun début de fonctionnalité dans cette issue.
+
+## Complément : retrait final de 42 dossiers vides (issue #6)
+
+Inventaire effectué avec Get-ChildItem -Force dans src/main/java et src/test/java. Les 36 sous-dossiers métier étaient sans fichier ni élément caché. Après leur retrait, les six parents métier étaient eux aussi totalement vides. Chaque chemin absolu a été résolu et vérifié dans src/main/java/com/gestion/GestionTransport avant une suppression non récursive avec Directory.Delete(chemin, false), qui refuse un répertoire contenant un élément.
+
+Les 42 chemins retirés, relatifs à la racine du dépôt :
+
+- `src/main/java/com/gestion/GestionTransport/agence/controller`
+- `src/main/java/com/gestion/GestionTransport/agence/service`
+- `src/main/java/com/gestion/GestionTransport/agence/repository`
+- `src/main/java/com/gestion/GestionTransport/agence/dto`
+- `src/main/java/com/gestion/GestionTransport/agence/mapper`
+- `src/main/java/com/gestion/GestionTransport/agence/entity`
+- `src/main/java/com/gestion/GestionTransport/client/controller`
+- `src/main/java/com/gestion/GestionTransport/client/service`
+- `src/main/java/com/gestion/GestionTransport/client/repository`
+- `src/main/java/com/gestion/GestionTransport/client/dto`
+- `src/main/java/com/gestion/GestionTransport/client/mapper`
+- `src/main/java/com/gestion/GestionTransport/client/entity`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/controller`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/service`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/repository`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/dto`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/mapper`
+- `src/main/java/com/gestion/GestionTransport/chauffeur/entity`
+- `src/main/java/com/gestion/GestionTransport/vehicule/controller`
+- `src/main/java/com/gestion/GestionTransport/vehicule/service`
+- `src/main/java/com/gestion/GestionTransport/vehicule/repository`
+- `src/main/java/com/gestion/GestionTransport/vehicule/dto`
+- `src/main/java/com/gestion/GestionTransport/vehicule/mapper`
+- `src/main/java/com/gestion/GestionTransport/vehicule/entity`
+- `src/main/java/com/gestion/GestionTransport/trajet/controller`
+- `src/main/java/com/gestion/GestionTransport/trajet/service`
+- `src/main/java/com/gestion/GestionTransport/trajet/repository`
+- `src/main/java/com/gestion/GestionTransport/trajet/dto`
+- `src/main/java/com/gestion/GestionTransport/trajet/mapper`
+- `src/main/java/com/gestion/GestionTransport/trajet/entity`
+- `src/main/java/com/gestion/GestionTransport/reservation/controller`
+- `src/main/java/com/gestion/GestionTransport/reservation/service`
+- `src/main/java/com/gestion/GestionTransport/reservation/repository`
+- `src/main/java/com/gestion/GestionTransport/reservation/dto`
+- `src/main/java/com/gestion/GestionTransport/reservation/mapper`
+- `src/main/java/com/gestion/GestionTransport/reservation/entity`
+- `src/main/java/com/gestion/GestionTransport/agence`
+- `src/main/java/com/gestion/GestionTransport/client`
+- `src/main/java/com/gestion/GestionTransport/chauffeur`
+- `src/main/java/com/gestion/GestionTransport/vehicule`
+- `src/main/java/com/gestion/GestionTransport/trajet`
+- `src/main/java/com/gestion/GestionTransport/reservation`
+
+Aucun répertoire vide restant détecté dans src/main/java et src/test/java après opération. Aucun dossier de test retiré. Aucun fichier supprimé par cette opération. Les 25 fichiers suivis et non suivis inventoriés avant intervention sont préservés, empreintes SHA-256 identiques, y compris les configurations, la sécurité, les erreurs, les tests et le POM local. Les ressources et les documents locaux sont conservés.
+
+Git ne suit pas les dossiers vides : leur retrait local ne produit aucun diff. Seule cette mise à jour du rapport est committée et poussée sur la branche existante de l issue #6. Le dossier principal reste sur sa branche locale de travail ; la publication documentaire utilise le worktree existant de la branche #6.
+
+### Chevauchement des PR #5 et #7
+
+Vérification des deux diffs depuis origin/master : chacun ajoute indépendamment docs/backend/audit-redondances.md, avec un contenu différent. Les deux PR sont ouvertes en brouillon, non fusionnées. Même si chacune est intégrable séparément sur master à cet instant, intégrer la première entraînera un conflit ajout/ajout pour la seconde. Aucun audit ne doit être remplacé par l autre.
+
+Consolidation proposée, à valider avant intégration : conserver le registre général A/B/C/D et ses preuves de la PR #5, puis ajouter dans le même document une section historique issue #6 contenant les 36 chemins de fichiers, empreintes, sauvegarde, les 42 dossiers et les résultats propres à chaque opération. Dater les constats afin de distinguer conservation initiale et retraits ensuite autorisés. Aucun cherry-pick, merge ou remplacement de l audit #4 réalisé dans cette correction.
+
+### Vérification après retrait des dossiers
+
+Après retrait : .\mvnw.cmd clean verify — BUILD SUCCESS, 10 tests, 0 échec, 0 erreur, 0 ignoré, 36,398 s, Java 21.0.9 et Spring Boot 4.1.2. H2 testé ; PostgreSQL non testé. git diff --check et conservation des fichiers contrôlés avant publication. Aucun nouveau package ni classe métier créé. Arrêt pour validation après mise à jour de la PR existante.
