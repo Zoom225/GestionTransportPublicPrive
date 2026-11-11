@@ -7,7 +7,7 @@ Ce document définit les invariants de cadrage et propose une architecture ; auc
 | Concept | Responsabilité |
 |---|---|
 | Agence | Regrouper les moyens et le périmètre de gestion locale |
-| Administrateur | Porter les droits GLOBAL ou LOCAL, dont le détail reste à valider |
+| Administrateur | Porter les droits GENERAL ou LOCAL, dont le détail reste à valider |
 | Chauffeur | Conduire le trajet auquel il est affecté dès sa création |
 | Véhicule | Moyen de transport affecté au trajet |
 | Client | Réserver une place ; catégorie STANDARD, ABONNE ou VIP sans avantage présumé |
@@ -58,9 +58,9 @@ Les contrôleurs appellent les services ; les services utilisent leurs repositor
 | Module transversal | Responsabilité |
 |---|---|
 | configuration | Configuration technique et profils d'environnement |
-| securite | Authentification, principal et autorisations GLOBAL/LOCAL ; catégories clients séparées des droits |
+| securite | Authentification, principal et autorisations GENERAL/LOCAL ; catégories clients séparées des droits |
 | erreur | Erreurs métier, traduction HTTP centralisée et format de réponse stable |
 
 ## Décisions ouvertes
 
-Droits précis GLOBAL/LOCAL, avantages éventuels STANDARD/ABONNE/VIP, identité commune client/chauffeur, rattachement aux agences, disponibilité des ressources, remplacement du véhicule/chauffeur, transitions d'état, délais d'expiration, politique tarifaire et pénalités. Aucun choix ouvert n'assouplit les invariants de chauffeur obligatoire et de quatre places maximum.
+Droits précis GENERAL/LOCAL, avantages éventuels STANDARD/ABONNE/VIP, identité commune client/chauffeur, rattachement aux agences, disponibilité des ressources, remplacement du véhicule/chauffeur, transitions d'état, délais d'expiration, politique tarifaire et pénalités. Aucun choix ouvert n'assouplit les invariants de chauffeur obligatoire et de quatre places maximum.
