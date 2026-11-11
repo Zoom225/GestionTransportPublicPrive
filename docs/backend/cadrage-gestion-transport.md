@@ -11,7 +11,7 @@ Backend uniquement : Java 21, Spring Boot 4.1.2, Maven, Spring Security, Spring 
 5. La cinquième réservation occupant une place est refusée, y compris sous concurrence. Quatre passagers et un chauffeur sont autorisés ; cinq passagers sont interdits.
 
 ## Décisions restant à préciser
-- Conserver les deux droits administrateurs GLOBAL et LOCAL ; préciser leurs opérations autorisées et le périmètre attribué à LOCAL.
+- Conserver les deux droits administrateurs GENERAL et LOCAL ; préciser leurs opérations autorisées et le périmètre attribué à LOCAL.
 - Conserver les catégories clients STANDARD, ABONNE et VIP ; aucun avantage, tarif ou délai préférentiel n'est validé.
 - Définir qui crée, modifie ou annule les trajets et qui affecte ou remplace le chauffeur et le véhicule.
 - Définir la politique de blocage d'une place en attente, sa durée et les conditions d'expiration. Dès qu'une attente bloque une place, elle compte dans la capacité.
